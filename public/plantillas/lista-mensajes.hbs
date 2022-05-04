@@ -1,0 +1,12 @@
+{{#if messages.length}}
+  <h2>Lista de Mensajes</h2>
+  {{#each messages}}
+    <div>
+      <p
+        style="color: blue; font-weight: bold; display: inline-block;"
+      >{{this.username}}</p>
+      <p style="color: brown; display: inline-block;">[{{this.fyh}}]:</p>
+      <p style="color: green; display: inline-block;">{{this.message}}</p>
+    </div>
+  {{/each}}
+{{/if}}

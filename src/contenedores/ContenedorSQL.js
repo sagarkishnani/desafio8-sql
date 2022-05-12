@@ -7,7 +7,7 @@ class ContenedorSQL {
   }
 
   async listar(id) {
-    await knex
+    await this.knex
       .from(`${this.tabla}`)
       .select("id")
       .where("id", "=", id)
@@ -24,9 +24,9 @@ class ContenedorSQL {
   }
 
   async listarAll() {
-    await knex
-      .from(`${this.tabla}`)
+    await this.knex
       .select("*")
+      .from(`${this.tabla}`)
       .then((data) => {
         console.log(data);
       })
@@ -40,7 +40,7 @@ class ContenedorSQL {
   }
 
   async guardar(elem) {
-    await knex(`${this.tabla}`)
+    await this.knex(`${this.tabla}`)
       .insert(elem)
       .then((data) => {
         console.log(data);
@@ -55,7 +55,7 @@ class ContenedorSQL {
   }
 
   async actualizar(elem, id) {
-    await knex(`${this.tabla}`)
+    await this.knex(`${this.tabla}`)
       .where("id", id)
       .update({ elem })
       .then(() => console.log("Registro actualizado"))
@@ -69,7 +69,7 @@ class ContenedorSQL {
   }
 
   async borrar(id) {
-    await knex(`${this.tabla}`)
+    await this.knex(`${this.tabla}`)
       .where("id", "=", id)
       .del()
       .then(() => console.log("Registro eliminado"))
@@ -83,7 +83,7 @@ class ContenedorSQL {
   }
 
   async borrarAll() {
-    await knex(`${this.tabla}`)
+    await this.knex(`${this.tabla}`)
       .del()
       .then(() => console.log("Tabla eliminada"))
       .catch((err) => {

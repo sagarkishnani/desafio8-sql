@@ -10,9 +10,9 @@ export default {
     client: "mysql",
     connection: {
       host: "localhost",
-      user: "coderhouse",
-      password: "coderhouse",
-      database: "coderhouse",
+      user: "root",
+      password: "123456",
+      database: "ecommerce",
     },
   },
 };
